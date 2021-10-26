@@ -30,4 +30,34 @@ public class PessoaService {
 		}
 		
 	}
+	
+	public Optional<Object> buscarId( Long id_pessoa) {
+		Optional<Pessoa> pessoa = repository.findById(id_pessoa);
+		if (pessoa.isPresent()) {
+			return Optional.ofNullable(pessoa);
+		} else {
+			return Optional.empty();
+		}
+		
+	}
+	
+	public Optional<Object> buscarCpf( String cpf) {
+		Optional<Pessoa> pessoa = repository.findByCpf(cpf);
+		if (pessoa.isPresent()) {
+			return Optional.ofNullable(pessoa);
+		} else {
+			return Optional.empty();
+		}
+		
+	}
+	
+	public Optional<Object> buscarRg( String rg) {
+		Optional<Pessoa> pessoa = repository.findByRg(rg);
+		if (pessoa.isPresent()) {
+			return Optional.ofNullable(pessoa);
+		} else {
+			return Optional.empty();
+		}
+		
+	}
 }

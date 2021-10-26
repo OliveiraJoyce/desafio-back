@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,43 @@ public class PessoaController {
 	
 	}
 	
+	@GetMapping("/{id_pessoa}")
+	public ResponseEntity<Object> buscarPorId(@PathVariable(value = "id_pessoa") Long id_pessoa) {
+
+		Optional<Object> objetoBuscado = service.buscarId(id_pessoa);
+		if (objetoBuscado.isPresent()) {
+			return ResponseEntity.status(200).body(objetoBuscado.get());
+		} else {
+			return ResponseEntity.status(404).build();
+			
+		}
+	}
+	
+	@GetMapping("/cpf/{cpf}")
+	public ResponseEntity<Object> buscarPorCpf(@PathVariable(value = "cpf") String cpf) {
+		Optional<Object> objetoBuscado = service.buscarCpf(cpf);
+		if (objetoBuscado.isPresent()) {
+			return ResponseEntity.status(200).body(objetoBuscado.get());
+		} else {
+			return ResponseEntity.status(404).build();
+			
+		}
+		
+	}
+	
+	@GetMapping("/rg/{rg}")
+	public ResponseEntity<Object> buscarPorRg(@PathVariable(value = "rg") String rg) {
+		Optional<Object> objetoBuscado = service.buscarRg(rg);
+		if (objetoBuscado.isPresent()) {
+			return ResponseEntity.status(200).body(objetoBuscado.get());
+		} else {
+			return ResponseEntity.status(404).build();
+			
+		}
+		
+	}
+	
+		
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Object> cadastrarPessoa(@Valid @RequestBody Pessoa novaPessoa) {
 		Optional<Object> objetoCadastrado = service.cadastrarPessoa(novaPessoa);

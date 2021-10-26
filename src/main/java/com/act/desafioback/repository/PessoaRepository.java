@@ -12,21 +12,33 @@ import com.act.desafioback.model.Pessoa;
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 	
 	/**
-	 * Metodo utilizado para pesquisar nome da tabela Usuario
+	 * Metodo utilizado para pesquisar nome da tabela Pessoa
 	 * 
 	 * @param nome
-	 * @return Lista de Usuario
+	 * @return Lista de Pessoa
 	 * @author Joyce Oliveira.
 	 */
 	 public List<Pessoa> findAllByNomeContainingIgnoreCase (String nome);
 	 
 	/**
-	 * Metodo utilizado para selecionar apenas um Usuario pelo cpf
+	 * Metodo utilizado para selecionar apenas um Pessoa pelo cpf
 	 * 
 	 * @param cpf
-	 * @return Optional com Usuario 
+	 * @return Optional com Pessoa 
 	 * @author Joyce Oliveira.
 	 */
 
 	public Optional<Pessoa> findByCpf (String cpf); 
+	
+	
+	/**
+	 * Metodo utilizado para selecionar apenas um Pessoa pelo rg
+	 * 
+	 * @param rg
+	 * @return Optional com Pessoa 
+	 * @author Joyce Oliveira.
+	 */
+	public Optional<Pessoa> findByRg (String rg); 
 }
+
+	
