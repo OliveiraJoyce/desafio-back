@@ -1,12 +1,24 @@
 package com.act.desafioback.model;
 
+
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 
 @Entity
@@ -20,14 +32,14 @@ public class Pessoa {
 	@NotNull
 	private String nome;
 	
-//	@CPF(message="cpf inválido")
 	@NotBlank(message="cpf obrigatório")
 	private String cpf; 
 	
 	private String rg;
 
-
-	private String endereco;
+	@ManyToOne
+	@JsonIgnoreProperties("pessoa")
+	private Endereco cep;
 	
 	
 	public Long getId() {
@@ -54,12 +66,16 @@ public class Pessoa {
 	public void setRg(String rg) {
 		this.rg = rg;
 	}
-	public String getEndereco() {
-		return endereco;
+	public Endereco getCep() {
+		return cep;
 	}
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setCep(Endereco cep) {
+		this.cep = cep;
 	}
+	
+	
+	
+	
 	
 	
 }

@@ -6,10 +6,12 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.act.desafioback.model.Pessoa;
 import com.act.desafioback.repository.PessoaRepository;
 import com.act.desafioback.service.PessoaService;
+
 
 @RestController
 @RequestMapping("/pessoas")
@@ -80,9 +83,13 @@ public class PessoaController {
 		} else {
 			return ResponseEntity.status(400).build();
 		}
-		
-
 	}
+		
+		@PutMapping("/editar")
+		public ResponseEntity<Pessoa> put(@RequestBody Pessoa pessoa) {
+			return ResponseEntity.status(HttpStatus.OK).body(repository.save(pessoa));
+		}
+	
 
 	
 	
