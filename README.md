@@ -1,4 +1,4 @@
-# Desafio-back Casdastro de Pessoas e Endereços 
+# Desafio-back Cadastro de Pessoas e Endereços 
 
 Aplicação feita em Spring Boot 2.5.6 para realizar o cadastro de pessoas e em seguida como relacionando com seu endereço consultado através do CEP, 
 utilizando uma API externa do endereço https://viacep.com.br/ws/01001000/json/ para realizar como consultas.
