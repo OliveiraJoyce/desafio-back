@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,10 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
-
-
 import com.act.desafioback.model.Endereco;
-
 import com.act.desafioback.repository.EnderecoRepository;
 import com.act.desafioback.service.EnderecoService;
 
@@ -54,5 +52,6 @@ public class EnderecoController {
 		}
 
 	}
+	
 
 }
